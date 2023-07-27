@@ -20,3 +20,7 @@ myForm.addEventListener("submit", function(event){
 
     saveNames(names)
 })
+
+/*******************************
+    Vypisování zpět do stránky
+********************************/

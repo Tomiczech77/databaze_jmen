@@ -24,3 +24,11 @@ myForm.addEventListener("submit", function(event){
 /*******************************
     Vypisování zpět do stránky
 ********************************/
+let buttonToList = document.querySelector(".to-list")
+buttonToList.addEventListener("click", function(event){
+    let namesFromStorageJSON = JSON.parse(localStorage.getItem("names"))
+    namesFromStorageJSON.forEach(function(name){
+        const oneNameHTML = generateHTMLstructure(name)
+        document.querySelector(".list-names").appendChild(oneNameHTML)
+    })
+})

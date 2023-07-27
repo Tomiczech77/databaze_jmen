@@ -12,3 +12,11 @@ const getSavedNames = function(){
     }
 }
 
+
+/**********************************************
+    Funkce pro použití při odeslání formuláře;
+    Ukládá do localStoragr jméno z formuláře
+***********************************************/
+const saveNames = function(oneName){
+    localStorage.setItem("names", JSON.stringify(oneName))
+}

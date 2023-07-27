@@ -6,7 +6,7 @@ myForm.addEventListener("submit", function(event){
     event.preventDefault()
 
     names.push({
-        id: "",
+        id: uuidv4(),
         firstName: event.target.elements.firstName.value
     })
 

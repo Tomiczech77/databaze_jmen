@@ -9,4 +9,8 @@ myForm.addEventListener("submit", function(event){
         id: "",
         firstName: event.target.elements.firstName.value
     })
+
+    event.target.elements.firstName.value = ""
+
+    saveNames(names)
 })

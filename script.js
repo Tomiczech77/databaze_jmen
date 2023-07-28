@@ -26,6 +26,8 @@ myForm.addEventListener("submit", function(event){
 ********************************/
 let buttonToList = document.querySelector(".to-list")
 buttonToList.addEventListener("click", function(event){
+    document.querySelector(".list-names").innerHTML = ""
+    
     let namesFromStorageJSON = JSON.parse(localStorage.getItem("names"))
     namesFromStorageJSON.forEach(function(name){
         const oneNameHTML = generateHTMLstructure(name)

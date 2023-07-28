@@ -10,7 +10,7 @@ const names = getSavedNames()
 let myForm = document.querySelector("#test-form")
 let myCheckbox = document.querySelector(".my-checkbox")
 
-myForm.addEventListener("submit", function(event){
+myForm.addEventListener("submit", (event) => {
     event.preventDefault()
 
     names.push({
@@ -29,7 +29,7 @@ myForm.addEventListener("submit", function(event){
     Vypisování zpět do stránky
 ********************************/
 let buttonToList = document.querySelector(".to-list")
-buttonToList.addEventListener("click", function(event){
+buttonToList.addEventListener("click", (event) => {
     document.querySelector(".list-names").innerHTML = ""
     
     let namesFromStorageJSON = JSON.parse(localStorage.getItem("names"))
@@ -40,6 +40,4 @@ buttonToList.addEventListener("click", function(event){
     })
 })
 
-window.addEventListener("storage", function(event){
-    lacation.reload()
-})
+window.addEventListener("storage", (event) => lacation.reload())

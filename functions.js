@@ -28,7 +28,7 @@ const saveNames = function(oneName){
 ************************************************************************/
 const generateHTMLstructure = function(oneName){
     const newDiv = document.createElement("div")
-    const newSpan = document.createElement("span")
+    const newLink = document.createElement("a")
     const button = document.createElement("button")
 
     // Nastavení mazacího tlačítka
@@ -41,14 +41,16 @@ const generateHTMLstructure = function(oneName){
         toListAgain()
     })
 
-    newSpan.textContent = oneName.firstName
+    newLink.textContent = oneName.firstName
     if(oneName.adult === true){
-        newSpan.classList.add("adult")
+        newLink.classList.add("adult")
     } else {
-        newSpan.classList.add("no-adult")
+        newLink.classList.add("no-adult")
     }
 
-    newDiv.appendChild(newSpan)
+    newLink.setAttribute("href", `edit.html#${oneName.id}`)
+
+    newDiv.appendChild(newLink)
 
     return newDiv
 }

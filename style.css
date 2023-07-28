@@ -75,3 +75,11 @@ input[type="submit"]:hover {
     margin-left: 20px;
     font-size: 25px;
 }
+
+.adult {
+    color: green;
+}
+
+.no-adult {
+    color: red;
+}

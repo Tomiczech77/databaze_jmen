@@ -2,7 +2,7 @@
     Funkce načítající data z localSorage;
     Ošetřit, pokud data v localStorage nejsou
 ***********************************************/
-const getSavedNames = function(){
+const getSavedNames = () => {
     const myNames = localStorage.getItem("names")
 
     if(myNames !== null){
@@ -15,18 +15,16 @@ const getSavedNames = function(){
 
 /**********************************************
     Funkce pro použití při odeslání formuláře;
-    Ukládá do localStoragr jméno z formuláře
+    Ukládá do localStorage jméno z formuláře
 ***********************************************/
-const saveNames = function(oneName){
-    localStorage.setItem("names", JSON.stringify(oneName))
-}
+const saveNames = (oneName) => localStorage.setItem("names", JSON.stringify(oneName))
 
 
 /***********************************************************************
     Generování HTML struktury, kterou umístíme do stránky po kliknutí na tlačítko "Vypiš"
     + použijeme ji také pro vypsíná nových informací z localStorage, když nějaké jméno vymažeme pomocí tlačítka "Vymazat jméno"
 ************************************************************************/
-const generateHTMLstructure = function(oneName){
+const generateHTMLstructure = (oneName) => {
     const newDiv = document.createElement("div")
     const newLink = document.createElement("a")
     const button = document.createElement("button")
@@ -35,7 +33,7 @@ const generateHTMLstructure = function(oneName){
     button.textContent = "Vymazat jméno"
     newDiv.appendChild(button)
 
-    button.addEventListener("click", function(event){
+    button.addEventListener("click", (event) => {
         removeNames(names, oneName.id)
         saveNames(names)
         toListAgain()
@@ -59,8 +57,8 @@ const generateHTMLstructure = function(oneName){
 /***********************************************************************
     Podle ID najdeme index daného jména a pomocí splice jo odstraníme
 ************************************************************************/
-const removeNames = function(ourNames, id){
-    const index = ourNames.findIndex(function(nameWantToCheck){
+const removeNames = (ourNames, id) => {
+    const index = ourNames.findIndex((nameWantToCheck) => {
         return nameWantToCheck.id === id
     })
 
@@ -72,7 +70,7 @@ const removeNames = function(ourNames, id){
 /***********************************************************************
     Pokud smažeme nějaké jméno z localStorage, tak tato funkce zapezpečí opětovné vypsání localStorage (tedy vypsání bez smazaného jména)
 ************************************************************************/
-const toListAgain = function(){
+const toListAgain = () => {
     document.querySelector(".list-names").innerHTML = ""
 
     let newData = getSavedNames()

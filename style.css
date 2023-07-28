@@ -1,5 +1,5 @@
 body {
-    background: rgb(7, 72, 75);
+    background: rgb(11, 109, 114);
 }
 
 h1 {
@@ -71,7 +71,7 @@ input[type="submit"]:hover {
     box-shadow: 5px 5px 10px black;
 }
 
-.list-names span {
+.list-names a {
     margin-left: 20px;
     font-size: 25px;
 }
@@ -82,4 +82,24 @@ input[type="submit"]:hover {
 
 .no-adult {
     color: red;
+}
+
+.back-btn {
+    padding: 5px 10px;
+    text-decoration: none;
+    display: block;
+    margin: 50px auto;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    background: rgb(11, 124, 77);
+    color: white;
+    width: 170px;
+}
+
+.back-btn:hover {
+    background: rgb(14, 151, 94);
+    cursor: pointer;
+    box-shadow: 5px 5px 10px black;
 }

@@ -27,7 +27,6 @@ let changingForm = document.querySelector("#changing-form").addEventListener("su
     Pokud se něco změní na jedné záložce, tak se to projeví i na dalších záložkach stejmé stránky
 ******************************************************************************************/
 window.addEventListener("storage", function(event){
-    console.log(event)
 
     if(event.key === "names"){
         names = JSON.parse(event.newValue)

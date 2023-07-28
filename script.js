@@ -39,3 +39,7 @@ buttonToList.addEventListener("click", function(event){
         document.querySelector(".list-names").appendChild(oneNameHTML)
     })
 })
+
+window.addEventListener("storage", function(event){
+    lacation.reload()
+})

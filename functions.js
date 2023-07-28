@@ -35,8 +35,27 @@ const generateHTMLstructure = function(oneName){
     button.textContent = "Vymazat jméno"
     newDiv.appendChild(button)
 
+    button.addEventListener("click", function(event){
+        removeNames(names, oneName.id)
+        saveNames(names)
+    })
+
     newSpan.textContent = oneName.firstName
     newDiv.appendChild(newSpan)
 
     return newDiv
+}
+
+
+/***********************************************************************
+    Podle ID najdeme index daného jména a pomocí splice jo odstraníme
+************************************************************************/
+const removeNames = function(ourNames, id){
+    const index = ourNames.findIndex(function(nameWantToCheck){
+        return nameWantToCheck.id === id
+    })
+
+    if(index > -1){
+        ourNames.splice(index, 1)
+    }
 }

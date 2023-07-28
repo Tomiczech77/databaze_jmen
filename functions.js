@@ -38,6 +38,7 @@ const generateHTMLstructure = function(oneName){
     button.addEventListener("click", function(event){
         removeNames(names, oneName.id)
         saveNames(names)
+        toListAgain()
     })
 
     newSpan.textContent = oneName.firstName
@@ -58,4 +59,18 @@ const removeNames = function(ourNames, id){
     if(index > -1){
         ourNames.splice(index, 1)
     }
+}
+
+/***********************************************************************
+    Pokud smažeme nějaké jméno z localStorage, tak tato funkce zapezpečí opětovné vypsání localStorage (tedy vypsání bez smazaného jména)
+************************************************************************/
+const toListAgain = function(){
+    document.querySelector(".list-names").innerHTML = ""
+
+    let newData = getSavedNames()
+    
+    newData.forEach(function(oneName){
+        const newContent = generateHTMLstructure(oneName)
+        document.querySelector(".list-names").appendChild(newContent)
+    })
 }

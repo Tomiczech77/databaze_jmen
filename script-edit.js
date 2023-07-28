@@ -2,9 +2,7 @@ let nameID = location.hash.substring(1)
 let names = getSavedNames()
 
 // Vytažení objektu
-let searchedName = names.find(function(oneObject){
-    return oneObject.id === nameID
-})
+let searchedName = names.find((oneObject) => oneObject.id === nameID)
 
 // Když id nelze najít, přesměruje nás to automaticky na stránku index.html
 if(searchedName === undefined){
@@ -15,7 +13,7 @@ if(searchedName === undefined){
 document.querySelector("#edited-name").value = searchedName.firstName
 
 // Můžeme změnit jméno v input a změnit ho u celého objektu
-let changingForm = document.querySelector("#changing-form").addEventListener("submit", function(event){
+let changingForm = document.querySelector("#changing-form").addEventListener("submit", (event) => {
     event.preventDefault()
 
     searchedName.firstName = event.target.elements.changingName.value
@@ -26,7 +24,7 @@ let changingForm = document.querySelector("#changing-form").addEventListener("su
 /******************************************************************************************
     Pokud se něco změní na jedné záložce, tak se to projeví i na dalších záložkach stejmé stránky
 ******************************************************************************************/
-window.addEventListener("storage", function(event){
+window.addEventListener("storage", (event) => {
 
     if(event.key === "names"){
         names = JSON.parse(event.newValue)
